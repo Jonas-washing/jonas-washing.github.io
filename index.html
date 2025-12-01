@@ -3,251 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparkle Clean Laundry - Your Local Washing Experts</title>
-    <!-- Importing a clean, modern font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Jonas Washing - Premium Laundry Services</title>
+    <!-- Modern Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* General Reset and Base Styles */
+        /* --- CSS Reset & Base Styles --- */
         :root {
-            --primary-blue: #007BFF;
-            --accent-light: #E9F6FF;
-            --text-dark: #333333;
-            --text-light: #ffffff;
-            --border-radius: 12px;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --primary-color: #0ea5e9; /* Modern Sky Blue */
+            --secondary-color: #0284c7; /* Darker Blue */
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Enables smooth scrolling for anchor links */
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
-            background-color: var(--accent-light);
-            padding: 20px;
+            background-color: var(--white);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
             min-height: 100vh;
         }
 
-        /* Container for Centering */
+        /* --- Layout Helpers --- */
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            background-color: var(--text-light);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
+            padding: 0 20px;
+            width: 100%;
         }
 
-        /* Header Styling */
+        /* --- Header & Navigation --- */
         header {
-            background-color: var(--primary-blue);
-            color: var(--text-light);
-            padding: 40px 20px;
-            text-align: center;
+            background-color: var(--white);
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky; /* Keeps header visible at top */
+            top: 0;
+            z-index: 1000;
         }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 8px;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-btn-nav {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn-nav:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* --- Hero Section --- */
+        #home {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1545173168-9f1947eebb8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
             font-weight: 700;
         }
 
-        header p {
-            font-size: 1.1em;
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
             opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Main Content Sections */
-        .section {
-            padding: 40px 30px;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-            border-bottom: 3px solid var(--accent-light);
+        .btn {
             display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .service-item {
-            flex: 1 1 calc(50% - 10px); /* 2 items per row on desktop */
-            background-color: var(--accent-light);
-            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, background-color 0.2s;
         }
 
-        .service-item h3 {
-            margin-bottom: 10px;
-            color: var(--primary-blue);
-            font-size: 1.2em;
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
-        /* Contact Section Layout */
-        .contact-info {
+        /* --- About Section --- */
+        #about {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .contact-container {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
         .contact-card {
-            background-color: #f7f7f7;
-            padding: 20px;
-            border-radius: var(--border-radius);
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            min-width: 300px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
         }
 
         .contact-card h3 {
-            color: var(--text-dark);
-            margin-bottom: 10px;
-            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
         }
 
-        .contact-card p, .contact-card a {
-            font-size: 1.05em;
-            margin: 5px 0;
-            display: block;
-            color: var(--text-dark);
+        .contact-link {
+            font-size: 1.2rem;
+            color: var(--primary-color);
             text-decoration: none;
-        }
-        
-        .contact-card a:hover {
-            text-decoration: underline;
-            color: var(--primary-blue);
-        }
-
-        /* Footer Styling */
-        footer {
-            text-align: center;
-            padding: 20px 30px;
-            background-color: #333333;
-            color: #cccccc;
-            font-size: 0.9em;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #28a745; /* Green for action */
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.1em;
             font-weight: 600;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.1s ease;
         }
 
-        .cta-button:hover {
-            background-color: #218838;
-            transform: translateY(-1px);
+        /* --- Footer --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 40px 0;
+            margin-top: auto;
+            width: 100%;
         }
 
-        /* --- Responsiveness (Mobile Adjustments) --- */
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-            header h1 {
-                font-size: 2em;
-            }
+        .copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
 
-            .section {
-                padding: 30px 20px;
-            }
-
-            h2 {
-                font-size: 1.6em;
-            }
-
-            .services-grid {
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .header-content {
+                height: auto;
+                padding: 15px 0;
                 flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
             }
 
-            .service-item {
-                flex: 1 1 100%; /* Full width on mobile */
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
             }
         }
-
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header Section: Name and Slogan -->
-        <header>
-            <h1>Sparkle Clean Laundry</h1>
-            <p>The freshest laundry experience in town. Wash, Dry, and Go!</p>
-            <a href="#contact" class="cta-button">See Our Hours & Location</a>
-        </header>
 
-        <main>
-            <!-- Services Overview -->
-            <section class="section" id="services">
-                <h2>Our Services</h2>
-                <p style="margin-bottom: 20px;">We offer a modern, clean, and safe environment for all your laundry needs.</p>
-                
-                <div class="services-grid">
-                    <div class="service-item">
-                        <h3>High-Efficiency Machines</h3>
-                        <p>Dozens of new, state-of-the-art washers and dryers to handle loads of all sizes quickly.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Attendant Assistance Available</h3>
-                        <p>Staff is available when needed to assist with machine operation, provide change, and answer any questions.</p>
-                    </div>
-                    <!-- <div class="service-item">
-                        <h3>Drop-Off Service (Wash & Fold)</h3>
-                        <p>Too busy? Drop off your laundry, and we'll wash, dry, and perfectly fold it for you.</p>
-                    </div> -->
+    <!-- Header (Full Width) -->
+    <header>
+        <div class="container header-content">
+            <a href="#home" class="logo">Jonas <span>Washing</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact" class="contact-btn-nav">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container hero-content">
+            <h1>Fresh Clothes,<br>Zero Hassle.</h1>
+            <p>Experience the most reliable laundry service in town. We treat your clothes with the care they deserve.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Jonas Washing</h2>
+            <p class="section-subtitle">We are dedicated to providing premium laundry services with a personal touch. Quality, speed, and care are at the heart of what we do.</p>
+            
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Why Choose Us?</h3>
+                    <p>At Jonas Washing, we understand that life gets busy. That's why we offer a seamless laundry experience designed to give you back your free time.</p>
+                    <p>We are equipped with state-of-the-art <strong>industrial washing machines</strong> designed for deep cleaning and large loads. For your convenience, all our machines are fully <strong>coin and card operated</strong>, ensuring a smooth and hassle-free experience.</p>
                 </div>
-            </section>
-
-            <!-- Contact Details Section -->
-            <section class="section" id="contact">
-                <h2>Contact & Location</h2>
-                <div class="contact-info">
-                    <!-- Address Card -->
-                    <div class="contact-card">
-                        <h3>Location</h3>
-                        <p>3 Rosebank Road, Dunkled</p>
-                        <p>Johannesburg.</p>
-                        <a href="https://maps.google.com/?q=3+Rosebank+Road,+Dunkled" target="_blank">Get Directions (Opens Map)</a>
-                    </div>
-                    
-                    <!-- Hours and Phone Card -->
-                    <div class="contact-card">
-                        <h3>Hours & Phone</h3>
-                        <p><strong>Operating Hours:</strong> 6:00 AM - 10:00 PM, 7 Days a Week</p>
-                        <!-- <p><strong>Drop-Off Service:</strong> 9:00 AM - 5:00 PM (Monday - Friday)</p> -->
-                        <p><strong>Phone:</strong> <a href="+27 81 337 3803">081 337 3803</a></p>
-                    </div>
+                <div class="feature-box">
+                    <h3>Our Promise</h3>
+                    <p style="margin-top: 15px;">Spotless cleaning, neat folding, and punctual service every single time.</p>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
+    </section>
 
-        <!-- Footer Section -->
-        <footer>
-            <p>&copy; 2025 Jonas Laundry. All rights reserved.</p>
-            <p>Clean clothes, clear mind.</p>
-        </footer>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Ready for fresh laundry? Reach out to us today!</p>
+            
+            <div class="contact-container">
+                <div class="contact-card">
+                    <h3>Email Us</h3>
+                    <p>For inquiries and quotes</p>
+                    <br>
+                    <a href="mailto:lesedijonas12@gmail.com" class="contact-link">lesedijonas12@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Call Us</h3>
+                    <p>Speak to us directly</p>
+                    <br>
+                    <a href="tel:0813373803" class="contact-link">081 337 3803</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Full Width) -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo" style="color: white; font-size: 1.2rem;">Jonas <span style="color: #0ea5e9;">Washing</span></div>
+            <div class="copyright">
+                &copy; 2025 Jonas Washing. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
